@@ -7,6 +7,7 @@ import { BuyerService } from 'src/app/services/buyer.service';
 import { LoginDTO } from 'src/app/models/DTO/LoginDTO';
 import { StringResourcer } from 'src/app/stringResourcer.js';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
