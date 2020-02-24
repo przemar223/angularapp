@@ -35,7 +35,7 @@ export class UserPreferencesComponent implements OnInit {
   selectedSize = '';
   selectedType = '';
   selectedTrunkCapacity = '';
-  selectedDrive: DictionaryCarDriveDTO;
+  selectedDrive: DictionaryCarDriveDTO = new DictionaryCarDriveDTO;
   selectedAcceleration = '';
   selectedPower = '';
   selectedFuelConsumption = '';
@@ -63,11 +63,12 @@ export class UserPreferencesComponent implements OnInit {
   ages: String[] = [this.resourcer.ClientUserPreferencesPupil, this.resourcer.ClientUserPreferencesStudent,
   this.resourcer.ClientUserPreferencesAdult, this.resourcer.ClientUserPreferencesPensioner];
   isAllFields = true;
+  info = '';
   formData: FormData = new FormData();
   customerRequirements: CustomerRequirements = new CustomerRequirements;
 
-  one = false;
-  two = false;
+  checkbox1 = false;
+  checkbox2 = false;
 
   constructor(private router: Router, private customerRequirementsService: CustomerRequirementsService,
     private carTypeService: CarPurposeService, private provinceService: ProvinceService,
@@ -110,14 +111,30 @@ export class UserPreferencesComponent implements OnInit {
   }
 
   searchButton() {
+    this.info = '';
     this.showPreferences();
+    if (!this.checkbox1 && !this.checkbox2) {
+      this.isAllFields = false;
+      this.info += this.resourcer.CheckboxCheck + ' ';
+    } else {
+      this.isAllFields = true;
+    }
     if (this.selectedSize === '' || this.selectedType === '' || this.selectedTrunkCapacity === '' ||
       this.selectedDrive.name === '' || this.selectedAcceleration === '' || this.selectedPower === '' ||
       this.selectedFuelConsumption === '' || this.selectedPrice === '' || this.selectedSex === '' ||
-      this.selectedAge === '') {
+      this.selectedAge === '' || this.selectedProvince === '') {
       this.isAllFields = false;
+      this.info += this.resourcer.AllFields;
       return;
     } else {
+
+      if (!this.checkbox1 && !this.checkbox2) {
+        this.info = '';
+        this.isAllFields = false;
+        this.info += this.resourcer.CheckboxCheck + ' ';
+        return;
+      }
+
       this.isAllFields = true;
       this.customerRequirements.size = this.selectedSize;
       this.customerRequirements.type = this.selectedType;
@@ -131,6 +148,12 @@ export class UserPreferencesComponent implements OnInit {
       this.customerRequirements.age = this.selectedAge;
       this.customerRequirements.amountCars = this.selectedAmountCars;
       this.customerRequirements.province = this.selectedProvince;
+
+      this.customerRequirements.algorithms = [];
+      if (this.checkbox1) this.customerRequirements.algorithms.push('name1');
+      if (this.checkbox2) this.customerRequirements.algorithms.push('name2');
+      console.log('algorithms:');
+      console.log(this.customerRequirements.algorithms);
 
       this.customerRequirementsService.send(this.customerRequirements);
       if (this.selectedAmountCars === '1') {
@@ -146,6 +169,7 @@ export class UserPreferencesComponent implements OnInit {
   }
 
   showPreferences() {
+
     console.log(this.sizes);
     console.log('Rozmiar nadwozia: ' + this.selectedSize);
     console.log('Przeznaczenie: ' + this.selectedType);
@@ -168,13 +192,13 @@ export class UserPreferencesComponent implements OnInit {
 
 
   onItemChange(asd) {
-    if (asd === 'one') {
-      this.one = !this.one;
+    if (asd === 'checkbox1') {
+      this.checkbox1 = !this.checkbox1;
     }
-    if (asd === 'two') {
-      this.two = !this.two;
+    if (asd === 'checkbox2') {
+      this.checkbox2 = !this.checkbox2;
     }
-    console.log('checkbox nr: 1 - ' + this.one);
-    console.log('checkbox nr: 2 - ' + this.two);
+    console.log('checkbox nr: 1 - ' + this.checkbox1);
+    console.log('checkbox nr: 2 - ' + this.checkbox1);
   }
 }

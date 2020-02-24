@@ -335,6 +335,7 @@ export class StringResourcer {
     LoggedAs = stringsPL.LoggedAs;
     Approve = stringsPL.Approve;
     AllFields = stringsPL.AllFields;
+    CheckboxCheck = stringsPL.CheckboxCheck;
     OperationSuccessfully = stringsPL.OperationSuccessfully;
     DeleteOperationSuccessfully = stringsPL.DeleteOperationSuccessfully;
 }

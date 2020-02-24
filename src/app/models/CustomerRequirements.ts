@@ -11,5 +11,6 @@ export class CustomerRequirements {
     age: String;
     amountCars: String;
     province: String;
+    algorithms: String[] = [];
 }
 

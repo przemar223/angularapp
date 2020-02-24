@@ -5,6 +5,6 @@ export class RequirementsResult {
     fuelConsumptionValue: Number;
     priceValue: Number;
     driveValue: Number;
-    sexValu: Number;
+    sexValue: Number;
     ageValue: Number;
 }
