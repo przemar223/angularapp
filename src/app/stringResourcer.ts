@@ -279,6 +279,8 @@ export class StringResourcer {
     ClientUserPreferencesVerySmall2 = stringsPL.ClientUserPreferencesVerySmall2;
     ClientUserPreferencesSmall2 = stringsPL.ClientUserPreferencesSmall2;
     ClientUserPreferencesMedium2 = stringsPL.ClientUserPreferencesMedium2;
+    ClientUserPreferencesSmall4 = stringsPL.ClientUserPreferencesSmall4;
+    ClientUserPreferencesBig4 = stringsPL.ClientUserPreferencesBig4;
     ClientUserPreferencesBig2 = stringsPL.ClientUserPreferencesBig2;
     ClientUserPreferencesVeryBig2 = stringsPL.ClientUserPreferencesVeryBig2;
     ClientUserPreferencesVerySmall3 = stringsPL.ClientUserPreferencesVerySmall3;

@@ -1,5 +1,6 @@
 import { CarShowroomDTO } from './DTO/CarShowroomDTO';
 import { OwnerDetailsPreferencesDTO } from './DTO/OwnerDetailsPreferencesDTO';
+import { RequirementsResult } from './/RequirementsResult';
 
 export class FinishCar {
     id: Number;
@@ -18,4 +19,5 @@ export class FinishCar {
     OwnerDetailsPreferences: OwnerDetailsPreferencesDTO;
     carShowrooms: CarShowroomDTO[];
     ratio: Number;
+    results: RequirementsResult;
 }

@@ -55,8 +55,8 @@ export class UserPreferencesComponent implements OnInit {
   this.resourcer.ClientUserPreferencesMedium2, this.resourcer.ClientUserPreferencesBig2, this.resourcer.ClientUserPreferencesVeryBig2];
   sizes3: String[] = [this.resourcer.ClientUserPreferencesVerySmall3, this.resourcer.ClientUserPreferencesSmall3,
   this.resourcer.ClientUserPreferencesMedium3, this.resourcer.ClientUserPreferencesBig3, this.resourcer.ClientUserPreferencesVeryBig3];
-  sizes4: String[] = [this.resourcer.ClientUserPreferencesSmall2, this.resourcer.ClientUserPreferencesMedium2,
-  this.resourcer.ClientUserPreferencesBig2];
+  sizes4: String[] = [this.resourcer.ClientUserPreferencesSmall4, this.resourcer.ClientUserPreferencesMedium2,
+  this.resourcer.ClientUserPreferencesBig4];
 
   drives: DictionaryCarDriveDTO[];
   sexes: String[] = [this.resourcer.SexMale, this.resourcer.SexFemale];
@@ -65,6 +65,9 @@ export class UserPreferencesComponent implements OnInit {
   isAllFields = true;
   formData: FormData = new FormData();
   customerRequirements: CustomerRequirements = new CustomerRequirements;
+
+  one = false;
+  two = false;
 
   constructor(private router: Router, private customerRequirementsService: CustomerRequirementsService,
     private carTypeService: CarPurposeService, private provinceService: ProvinceService,
@@ -161,5 +164,17 @@ export class UserPreferencesComponent implements OnInit {
 
   backButton() {
     this.router.navigateByUrl('main');
+  }
+
+
+  onItemChange(asd) {
+    if (asd === 'one') {
+      this.one = !this.one;
+    }
+    if (asd === 'two') {
+      this.two = !this.two;
+    }
+    console.log('checkbox nr: 1 - ' + this.one);
+    console.log('checkbox nr: 2 - ' + this.two);
   }
 }

@@ -235,11 +235,47 @@
         </mat-form-field>
       </div>
     </div>
-
   </div>
+</form>
+<div>
+  <h4>ALGORYTMY</h4>
+</div>
 
+  <form class="example-form">
+    <div class="example-form-content">
+      
+      <div>
+        <form class="example-form2">
+          <div class="example-form-content2">
+            <div>
+              <div>
+                <section class="example-section">
+                  <mat-checkbox class="example-margin" (change)="onItemChange('one')">jeden</mat-checkbox> 
+                </section>
+              </div>
+              <div>
+                bardzo długi jest to opis zajmuje on wiele miejsca
+              </div>
+            </div>
+            <div>
+              <div>
+                <section class="example-section">
+                  <mat-checkbox class="example-margin" (change)="onItemChange('twi')">dwa</mat-checkbox> 
+                </section>
+              </div>
+              <div>
+                bardzo długi jest to opis zajmuje on wiele miejsca
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </form>
+
+<form class="example-form">
   <p class="warning" [hidden]="isAllFields">{{resourcer.AllFields}}</p>
-
+  
   <nav class="lowerButtons">
     <button mat-button (click)="searchButton()">
       {{resourcer.ClientUserPreferencesSearch}}

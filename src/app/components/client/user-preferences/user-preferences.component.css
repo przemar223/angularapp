@@ -3,13 +3,17 @@
 }
   
   .title{ }
-  
-  
+  .upperButtons{
+    background-color: brown;
+  }
 .nav-container{
   display: flex;
   flex-direction:row;
   border-bottom: 1px solid black;
   height: 51px;
+}
+.buttons:hover{
+  color: black;
 }
  .nav-container-one {
    width: 77%;
@@ -134,4 +138,13 @@ mat-form-field{
   flex-direction: column;
   width:70%;
 }
-
+.example-form-content2 {
+  display: flex;
+  flex-direction: column !important;
+  margin-left: 9px;
+}
+.example-form2 .example-form-content2 .example-form-labels {
+  display: flex;
+  flex-direction: column;
+  width:10%;
+}

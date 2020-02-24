@@ -69,6 +69,7 @@ nav button {
 .mat-expansion-panel{
   width: 80%;
   margin: 0 auto;
+  background-color: #98c3ff38;
 }
 
 .mat-expansion-panel .in{

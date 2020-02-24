@@ -3,7 +3,7 @@
 
 body {
     background-size: cover;
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(249, 249, 249);
 
 }
 
@@ -34,4 +34,18 @@ h1 {
 
   .mat-error{
     color: rgb(189, 0, 0);
+  }
+
+  .mat-button {
+    background-color: rgba(14, 171, 243, 0.36) !important;
+  }
+
+  .mat-button:hover {
+    color: #000000 !important;
+    background-color: #00aeff !important;
+    font-weight: 550 !important;
+  }
+
+  .highlight{
+    background: rgb(83, 175, 218);
   }

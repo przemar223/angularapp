@@ -64,9 +64,9 @@ nav button:link,  button:visited{
 }
 
 nav button:hover {
-  color: #039be5;
-  background-color: #cfd8dc;
-  font-weight: 900;
+  color: #000000;
+  background-color: #008bcc;
+  font-weight: 550;
 }
 
 .buttons {
@@ -85,7 +85,7 @@ nav button:hover {
   width: 13em;
   font-size: 3em;
   text-decoration: none;
-  background-color: rgb(155, 153, 153);
+  background-color: rgba(61, 174, 226, 0.616);
 }
 
 .float-right {

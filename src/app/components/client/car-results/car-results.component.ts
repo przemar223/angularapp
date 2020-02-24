@@ -25,6 +25,8 @@ export class CarResultsComponent implements OnInit, DoCheck {
   ngDoCheck() {
     if (this.customerRequirementsService.finishCars && this.customerRequirementsService.finishCars.length > 0 && this.i === 1) {
       this.finishCars = this.customerRequirementsService.finishCars;
+      console.log(this.finishCars);
+      console.log(this.finishCars[0].results.fuelConsumptionValue);
       this.i = this.i + 1;
     }
   }
