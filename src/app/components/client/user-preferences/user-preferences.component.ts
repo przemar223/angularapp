@@ -6,10 +6,12 @@ import { ProvinceService } from 'src/app/services/province.service';
 
 import { DictionaryPurposeDTO } from 'src/app/models/DTO/DictionaryPurposeDTO';
 import { ProvinceDTO } from 'src/app/models/DTO/ProvinceDTO';
+import { OptionDTO } from 'src/app/models/DTO/OptionDTO';
 import { CustomerRequirements } from 'src/app/models/CustomerRequirements';
 import { CustomerRequirementsService } from 'src/app/services/customerRequirements.service';
 import { DictionaryCarDriveDTO } from 'src/app/models/DTO/DictionaryCarDriveDTO';
 import { CarDriveService } from 'src/app/services/carDrive.service';
+import { AlgorithmService } from 'src/app/services/algorithm.service';
 import { StringResourcer } from 'src/app/stringResourcer.js';
 
 @Component({
@@ -44,6 +46,7 @@ export class UserPreferencesComponent implements OnInit {
   selectedAge = '';
   selectedAmountCars = '10';
   selectedProvince = '';
+  selectedIsOneType = false;
 
   carTypes: DictionaryPurposeDTO[];
   type: DictionaryPurposeDTO;
@@ -66,11 +69,14 @@ export class UserPreferencesComponent implements OnInit {
   info = '';
   formData: FormData = new FormData();
   customerRequirements: CustomerRequirements = new CustomerRequirements;
+  membershipFunctions: OptionDTO[];
 
-  checkbox1 = false;
-  checkbox2 = false;
+  listButton = [];
+  i = 1;
+  xxList = [];
 
-  constructor(private router: Router, private customerRequirementsService: CustomerRequirementsService,
+  constructor(private algorithmService: AlgorithmService,
+    private router: Router, private customerRequirementsService: CustomerRequirementsService,
     private carTypeService: CarPurposeService, private provinceService: ProvinceService,
     private carDriveService: CarDriveService, public resourcer: StringResourcer) { }
 
@@ -78,6 +84,14 @@ export class UserPreferencesComponent implements OnInit {
     this.getTypes();
     this.getProvinces();
     this.getDrives();
+    this.algorithmService.getMembershipFunctionsClient();
+  }
+
+  ngDoCheck() {
+    if (this.i === 1 && this.algorithmService.membershipFunctions.length > 0) {
+      this.membershipFunctions = this.algorithmService.membershipFunctions;
+      this.i = 2;
+    }
   }
 
   getTypes() {
@@ -113,7 +127,9 @@ export class UserPreferencesComponent implements OnInit {
   searchButton() {
     this.info = '';
     this.showPreferences();
-    if (!this.checkbox1 && !this.checkbox2) {
+    console.log('age ' + this.selectedAge)
+    console.log('amout cars  ' + this.selectedAmountCars)
+    if (this.xxList.length < 1) {
       this.isAllFields = false;
       this.info += this.resourcer.CheckboxCheck + ' ';
     } else {
@@ -121,14 +137,15 @@ export class UserPreferencesComponent implements OnInit {
     }
     if (this.selectedSize === '' || this.selectedType === '' || this.selectedTrunkCapacity === '' ||
       this.selectedDrive.name === '' || this.selectedAcceleration === '' || this.selectedPower === '' ||
-      this.selectedFuelConsumption === '' || this.selectedPrice === '' || this.selectedSex === '' ||
-      this.selectedAge === '' || this.selectedProvince === '') {
+      this.selectedFuelConsumption === '' || this.selectedPrice === '' || this.selectedSex === '' || this.selectedAmountCars === null ||
+      this.selectedAge === '' || Number(this.selectedAge) > 99 || Number(this.selectedAge) < 18 ||
+      Number(this.selectedAmountCars) > 99 || Number(this.selectedAmountCars) < 0 || this.selectedProvince === '') {
       this.isAllFields = false;
       this.info += this.resourcer.AllFields;
       return;
     } else {
 
-      if (!this.checkbox1 && !this.checkbox2) {
+      if (this.xxList.length < 1) {
         this.info = '';
         this.isAllFields = false;
         this.info += this.resourcer.CheckboxCheck + ' ';
@@ -149,23 +166,22 @@ export class UserPreferencesComponent implements OnInit {
       this.customerRequirements.amountCars = this.selectedAmountCars;
       this.customerRequirements.province = this.selectedProvince;
 
-      this.customerRequirements.algorithms = [];
-      if (this.checkbox1) this.customerRequirements.algorithms.push('name1');
-      if (this.checkbox2) this.customerRequirements.algorithms.push('name2');
-      console.log('algorithms:');
-      console.log(this.customerRequirements.algorithms);
+      this.customerRequirements.algorithms = this.xxList;
+      this.customerRequirements.isOneType = this.selectedIsOneType;
+      console.log('caly customerReq:');
+      console.log(this.customerRequirements);
 
-      this.customerRequirementsService.send(this.customerRequirements);
-      if (this.selectedAmountCars === '1') {
-        this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCar;
-      } else if (this.selectedAmountCars === '2' || this.selectedAmountCars === '3' || this.selectedAmountCars === '4') {
-        this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars;
-      } else {
-        this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars2;
-      }
-      this.customerRequirementsService.amount = this.selectedAmountCars;
-      this.router.navigateByUrl('car-results');
+     this.customerRequirementsService.send(this.customerRequirements);
+    if (this.selectedAmountCars === '1') {
+      this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCar;
+    } else if (this.selectedAmountCars === '2' || this.selectedAmountCars === '3' || this.selectedAmountCars === '4') {
+      this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars;
+    } else {
+      this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars2;
     }
+    this.customerRequirementsService.amount = this.selectedAmountCars;
+    this.router.navigateByUrl('car-results');
+     }
   }
 
   showPreferences() {
@@ -183,6 +199,8 @@ export class UserPreferencesComponent implements OnInit {
     console.log('Wiek: ' + this.selectedAge);
     console.log('Ilość wynikow: ' + this.selectedAmountCars);
     console.log('Wojewodztwo: ' + this.selectedProvince);
+    console.log('Checkbox: ' + this.selectedIsOneType);
+    console.log('Algorytmy: ' + this.xxList);
     console.log(this.carTypes);
   }
 
@@ -191,14 +209,18 @@ export class UserPreferencesComponent implements OnInit {
   }
 
 
-  onItemChange(asd) {
-    if (asd === 'checkbox1') {
-      this.checkbox1 = !this.checkbox1;
+  onItemChange(event, asd) {
+    console.log(event.checked, asd.name);
+    if (event.checked === true) {
+      this.xxList.push(asd.key);
+    } else {
+      this.xxList = this.xxList.filter(obj => obj !== asd.key);
     }
-    if (asd === 'checkbox2') {
-      this.checkbox2 = !this.checkbox2;
-    }
-    console.log('checkbox nr: 1 - ' + this.checkbox1);
-    console.log('checkbox nr: 2 - ' + this.checkbox1);
+    console.log(this.xxList);
+  }
+
+  onItemChange2(event) {
+    console.log(event.checked);
+    this.selectedIsOneType = event.checked;
   }
 }

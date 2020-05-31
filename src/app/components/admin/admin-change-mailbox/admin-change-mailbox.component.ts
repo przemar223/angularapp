@@ -38,6 +38,7 @@ export class AdminChangeMailboxComponent implements OnInit, DoCheck {
     } else {
       this.loginService.updateMailbox(this.mailbox)
         .subscribe(sh => this.mailbox = sh);
+        this.loginService.isChangePassword = true;
       this.router.navigateByUrl('admin/menu');
     }
   }

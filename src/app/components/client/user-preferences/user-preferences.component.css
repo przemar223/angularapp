@@ -154,3 +154,17 @@ mat-form-field {
     flex-direction: column;
     width: 10%;
 }
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox-label {
+    white-space: normal;
+}
+
+.membership-container {
+    margin: 10px 0;
+}

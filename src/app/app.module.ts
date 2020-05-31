@@ -50,7 +50,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CustomerRequirementsService } from './services/customerRequirements.service';
 import { LoginService } from './services/login.service';
-
+ 
 import { MatTableDataSource } from '@angular/material';
 import { CarSegmentService } from './services/carSegment.service';
 import { CarBodyService } from './services/carBody.service';
@@ -60,6 +60,7 @@ import { CarPurposeService } from './services/carPurpose.service';
 import { CarBodyAndDriveService } from './services/carBodyAndDrive.service';
 import { CarMarkService } from './services/carMark.service';
 import { BuyerService } from './services/buyer.service';
+import { AlgorithmService } from './services/algorithm.service';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { MainPageComponent } from './components/client/main-page/main-page.component';
@@ -83,6 +84,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminBuyersAndCarsDatabaseComponent } from './components/admin/admin-buyers-and-cars-database/admin-buyers-and-cars-database.component';
 import { AdminChangeMailboxComponent } from './components/admin/admin-change-mailbox/admin-change-mailbox.component';
 import { AdminPotentialBuyersDatabaseComponent } from './components/admin/admin-potential-buyers-database/admin-potential-buyers-database.component';
+import { AdminAlgorithmOptionsComponent } from './components/admin/admin-algorithm-options/admin-algorithm-options.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +110,7 @@ import { AdminPotentialBuyersDatabaseComponent } from './components/admin/admin-
     LoginComponent,
     AdminChangeMailboxComponent,
     AdminPotentialBuyersDatabaseComponent,
-
+    AdminAlgorithmOptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -157,7 +159,7 @@ import { AdminPotentialBuyersDatabaseComponent } from './components/admin/admin-
     MatTooltipModule,
     MatTreeModule,
   ],
-  providers: [CustomerRequirementsService, BuyerService, CarSegmentService, CarBodyService,
+  providers: [AlgorithmService, CustomerRequirementsService, BuyerService, CarSegmentService, CarBodyService,
     LoginService, ProvinceService, CarShowroomService, CarPurposeService, CarBodyAndDriveService, CarMarkService],
   bootstrap: [AppComponent]
 })

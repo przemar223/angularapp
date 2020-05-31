@@ -1,5 +1,5 @@
 export class RequirementsResult {
-     trunkCapacityValue: Number;
+    trunkCapacityValue: Number;
     accelerationValue: Number;
     powerValue: Number;
     fuelConsumptionValue: Number;

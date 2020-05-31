@@ -1,0 +1,139 @@
+<div class="nav-container">
+  <div class="nav-container-one">
+    <nav class="upperButtons">
+      <button mat-button [disabled]="isDisabled()" (click)="menuButton()">
+        {{resourcer.Menu}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="nav-container-two">
+    <div class="login-text">
+      <p>{{resourcer.LoggedAs}} {{loginService.login}}</p>
+    </div>
+    <div class="login-button">
+      <nav class="upperButtons float-right">
+        <button mat-button [disabled]="isDisabled()" (click)="logoutButton()">
+          {{resourcer.Logout}}
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="title">
+  <h1>
+    {{resourcer.AdminAlgorithmOptionsTitle}}
+  </h1>
+</div>
+
+
+<form class="example-form">
+  <div class="example-form-content">
+    <div>
+      <div>
+        <h4>{{resourcer.AdminAlgorithmOptionsMembershipFunction}}</h4>
+      </div>
+      <div class="form-container">
+        <mat-form-field class="option-container">
+          <mat-select placeholder="{{resourcer.AdminAlgorithmOptionsMembershipFunctionPlaceholder}}"
+            (keyup)="isPressEnter($event)"
+            [formControl]="membershipFunctionControl"
+            required [(ngModel)]="mf">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let membershipFunction of parameterInDTO.membershipFunctions"
+              [value]="membershipFunction">
+              {{membershipFunction.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="membershipFunctionControl.hasError('required')">{{resourcer.AdminAlgorithmOptionsMembershipFunctionInsert}}</mat-error>
+          <mat-hint>{{membershipFunctionControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.AdminAlgorithmOptionsAlgorithm}}</h4>
+      </div>
+      <div class="form-container">
+        <mat-form-field class="option-container">
+          <mat-select placeholder="{{resourcer.AdminAlgorithmOptionsAlgorithmPlaceholder}}"
+            (keyup)="isPressEnter($event)" [formControl]="algorithmControl"
+            required [(ngModel)]="alg">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let algorithm of parameterInDTO.algorithmFunctions"
+              [value]="algorithm">
+              {{algorithm.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="algorithmControl.hasError('required')">{{resourcer.AdminAlgorithmOptionsAlgorithmInsert}}</mat-error>
+          <mat-hint>{{algorithmControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.AdminAlgorithmOptionsIsOneType}}</h4>
+      </div>
+      <div class="form-container">
+        <mat-form-field class="option-container">
+          <mat-select placeholder="{{resourcer.AdminAlgorithmOptionsIsOneTypePlaceholder}}"
+            (keyup)="isPressEnter($event)" [formControl]="typeControl"
+            required [(ngModel)]="parameterInDTO.type">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let type of types"
+              [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="typeControl.hasError('required')">{{resourcer.AdminAlgorithmOptionsIsOneTypeInsert}}</mat-error>
+          <mat-hint>{{typeControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h4>{{resourcer.AdminAlgorithmOptionsAmountCars}}</h4>
+      </div>
+      <div class="form-container">
+        <mat-form-field class="option-container">
+          <input matInput type="number" pattern="^[0-9]{0,2}$" required min="1"
+            max="10" onkeypress="return event.charCode >= 48"
+          placeholder="{{resourcer.AdminAlgorithmOptionsAmountCarsPlaceholder}}"
+          [formControl]="amountCarControl" [(ngModel)]="parameterInDTO.selectedAmountCars">
+          <mat-error *ngIf="amountCarControl.hasError('required')">
+            {{resourcer.AdminAlgorithmOptionsAmountCarsInsert}}</mat-error>
+          <mat-hint>{{amountCarControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+    
+    <div>
+      <div>
+        <h4>{{resourcer.AdminAlgorithmOptionsRatioValue}}</h4>
+      </div>
+      <div class="form-container">
+        <mat-form-field class="option-container">
+          <input matInput type="number" pattern="^[0-9]{0,4}[.,]{0,1}[0-9]{0,4}$" required min="0" max="100"
+        onkeypress="return event.charCode >= 48 || event.charCode==46 || event.charCode==44"
+          placeholder="{{resourcer.AdminAlgorithmOptionsRatioValuePlaceholder}}"
+          [formControl]="ratioControl" [(ngModel)]="parameterInDTO.ratioValue">
+          <mat-error *ngIf="ratioControl.hasError('required')">
+            {{resourcer.AdminAlgorithmOptionsRatioValueInsert}}</mat-error>
+          <mat-hint>{{ratioControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <p class="warning" [class.hidden]="isAllFields">{{resourcer.AdminAlgorithmOptionsFillAllFields}}</p>
+  <div>
+    <nav class="lowerButtons">
+      <button mat-button [disabled]="isDisabled()" (click)="approveButton()">
+        {{resourcer.AdminAlgorithmOptionsSave}}
+      </button>
+    </nav>
+  </div>
+</form>

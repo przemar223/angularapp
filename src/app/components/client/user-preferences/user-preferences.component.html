@@ -20,7 +20,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesBodyInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesBody}}" [formControl]="carSizeControl" [(ngModel)]="selectedSize" required (selectionChange)="changeType($event.value)">
                         <mat-option>--</mat-option>
@@ -39,7 +39,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesPurposeInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesPurpose}}" [formControl]="carTypeControl" [(ngModel)]="selectedType" required>
                         <mat-option>--</mat-option>
@@ -58,7 +58,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesTrunkCapacityInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesTrunkCapacity}}" [formControl]="carTrunkCapacityControl" [(ngModel)]="selectedTrunkCapacity" required>
                         <mat-option>--</mat-option>
@@ -77,7 +77,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesDriveInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesDrive}}" [formControl]="carDriveControl" [(ngModel)]="selectedDrive" required>
                         <mat-option>--</mat-option>
@@ -97,7 +97,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesAccelerationInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesAcceleration}}" [formControl]="carAccelerationControl" [(ngModel)]="selectedAcceleration" required>
                         <mat-option>--</mat-option>
@@ -116,7 +116,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesHorsePowerInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesHorsePower}}" [formControl]="carPowerControl" [(ngModel)]="selectedPower" required>
                         <mat-option>--</mat-option>
@@ -135,7 +135,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesFuelConsumptionInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesFuelConsumption}}" [formControl]="carFuelConsumptionControl" [(ngModel)]="selectedFuelConsumption" required>
                         <mat-option>--</mat-option>
@@ -154,7 +154,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesPriceInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesPrice}}" [formControl]="carPriceControl" [(ngModel)]="selectedPrice" required>
                         <mat-option>--</mat-option>
@@ -173,7 +173,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesSexInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesSex}}" [formControl]="customerSexControl" [(ngModel)]="selectedSex" required>
                         <mat-option>--</mat-option>
@@ -192,7 +192,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesAgeInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <input matInput type="number" pattern="^(?!10)(?!11)(?!12)(?!13)(?!14)(?!15)(?!16)(?!17)([1-9]{1}[0-9]{1})$" required onkeypress="return event.charCode >= 48" placeholder="{{resourcer.ClientUserPreferencesAge}}" [formControl]="customerAgeControl" [(ngModel)]="selectedAge">
                     <mat-error *ngIf="customerAgeControl.hasError('required')">{{resourcer.ClientUserPreferencesAgeConditions}}
@@ -206,7 +206,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesAmountResultsInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <input matInput type="number" pattern="^[0-9]{0,2}$" required min="0" max="99" onkeypress="return event.charCode >= 48" placeholder="{{resourcer.ClientUserPreferencesAmountResults}}" [formControl]="amountCarControl" [(ngModel)]="selectedAmountCars">
                     <mat-error *ngIf="amountCarControl.hasError('required')">
@@ -220,7 +220,7 @@
             <div>
                 <h4>{{resourcer.ClientUserPreferencesProvinceInsert}}</h4>
             </div>
-            <div>
+            <div class="form-container">
                 <mat-form-field>
                     <mat-select placeholder="{{resourcer.ClientUserPreferencesProvince}}" [formControl]="provinceControl" [(ngModel)]="selectedProvince" required>
                         <mat-option>--</mat-option>
@@ -234,43 +234,43 @@
                 </mat-form-field>
             </div>
         </div>
+
+        <div>
+            <div>
+                <h4> {{resourcer.ClientUserPreferencesOneType}}</h4>
+            </div>
+            <div class="form-container">
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" (change)="onItemChange2($event)" style="display: flex;"></mat-checkbox>
+                </section>
+            </div>
+        </div>
+
     </div>
-</form>
+<!-- </form> -->
 
 <div class="title">
     <h3>
-        ALGORYTMY:
+        {{resourcer.ClientUserPreferencesAlgorithms}}
     </h3>
 </div>
 
-<form class="example-form">
+<!-- <form class="example-form"> -->
     <div class="example-form-content">
-        <div>
+        <div *ngFor="let membershipFunction of membershipFunctions" class="membership-container">
             <div>
                 <section class="example-section">
-                    <mat-checkbox class="example-margin" (change)="onItemChange('checkbox1')"><h4>jeden</h4></mat-checkbox>
+                    <mat-checkbox class="example-margin" (change)="onItemChange($event, membershipFunction)"><h4 class="checkbox-label">{{membershipFunction.name}}</h4></mat-checkbox>
                 </section>
             </div>
-            <div>
-                bardzo długi jest to opis zajmuje on wiele miejsca jeszcze dluższy i jeszcze dłuższy halo co tam slychac
-            </div>
-        </div>
-        <div>
-            <div>
-                <section class="example-section">
-                    <mat-checkbox class="example-margin" (change)="onItemChange('checkbox2')"><h4>dwa</h4></mat-checkbox>
-                </section>
-            </div>
-            <div>
-                bardzo długi jest to opis zajmuje on wiele miejsca
+            <div class="form-container">
+                {{membershipFunction.value}}
             </div>
         </div>
     </div>
-</form>
+<!-- </form> -->
 
-<form class="example-form">
-    <!-- <p class="warning" [hidden]="isAllFields">{{resourcer.AllFields}}</p> -->
-    <!-- <p class="warning" [hidden]="isCheckboxChecked">{{resourcer.CheckboxCheck}}</p> -->
+<!-- <form class="example-form"> -->
     <p class="warning" [class.hidden]="isAllFields">{{this.info}}</p>
 
     <nav class="lowerButtons">

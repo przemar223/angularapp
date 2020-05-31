@@ -12,5 +12,6 @@ export class CustomerRequirements {
     amountCars: String;
     province: String;
     algorithms: String[] = [];
+    isOneType: Boolean = false;
 }
 

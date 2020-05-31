@@ -38,7 +38,7 @@ export class AdminMenuComponent implements OnInit, DoCheck {
     this.loginService.checkSession();
 
     if (this.loginService.isChangePassword === true) {
-      this.changePasswordInfo = this.resourcer.AdminMenuChangePasswordSuccess;
+      this.changePasswordInfo = this.resourcer.OperationSuccessfully;
       this.info = false;
     } else if (this.loginService.isChangePassword === false) {
       this.changePasswordInfo = this.resourcer.AdminMenuChangePasswordDefead;
@@ -116,6 +116,12 @@ export class AdminMenuComponent implements OnInit, DoCheck {
     this.loginService.checkTimeLogin();
     this.loginService.isChangePassword = null;
     this.router.navigateByUrl('/admin/change-mailbox');
+  }
+
+  algorithmOptionsButton() {
+    this.loginService.checkTimeLogin();
+    this.loginService.isChangePassword = null;
+    this.router.navigateByUrl('/admin/algorithm-options');
   }
 
   logoutButton() {

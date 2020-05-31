@@ -21,6 +21,7 @@ import { AdminBuyersAndCarsDatabaseComponent } from './components/admin/admin-bu
 import { LoginComponent } from './components/login/login.component';
 import { AdminChangeMailboxComponent } from './components/admin/admin-change-mailbox/admin-change-mailbox.component';
 import { AdminPotentialBuyersDatabaseComponent } from './components/admin/admin-potential-buyers-database/admin-potential-buyers-database.component';
+import { AdminAlgorithmOptionsComponent } from './components/admin/admin-algorithm-options/admin-algorithm-options.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/main', pathMatch: 'full'},
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path: 'admin/change-password', component: AdminChangePasswordComponent},
   {path: 'admin', component: LoginComponent},
   {path: 'admin/change-mailbox', component: AdminChangeMailboxComponent},
-  {path: 'admin/potential-buyers-database', component: AdminPotentialBuyersDatabaseComponent}
+  {path: 'admin/potential-buyers-database', component: AdminPotentialBuyersDatabaseComponent},
+  {path: 'admin/algorithm-options', component: AdminAlgorithmOptionsComponent}
 ];
 
 @NgModule({

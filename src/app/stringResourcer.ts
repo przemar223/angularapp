@@ -181,6 +181,7 @@ export class StringResourcer {
     AdminMenuAddShowroom = stringsPL.AdminMenuAddShowroom;
     AdminMenuAddBuyer = stringsPL.AdminMenuAddBuyer;
     AdminMenuChangePassword = stringsPL.AdminMenuChangePassword;
+    AdminMenuAlgorithmOptions = stringsPL.AdminMenuAlgorithmOptions;
     AdminPotentialBuyersSearchFirstNameLastName = stringsPL.AdminPotentialBuyersSearchFirstNameLastName;
     AdminPotentialBuyersSendEmailToOne = stringsPL.AdminPotentialBuyersSendEmailToOne;
     AdminPotentialBuyersSended = stringsPL.AdminPotentialBuyersSended;
@@ -263,6 +264,16 @@ export class StringResourcer {
     ClientCarResultsShowShowroomsAddresses = stringsPL.ClientCarResultsShowShowroomsAddresses;
     ClientCarResultsAddress = stringsPL.ClientCarResultsAddress;
     ClientCarResultsProvince = stringsPL.ClientCarResultsProvince;
+
+    ClientCarResultsMatch = stringsPL.ClientCarResultsMatch;
+    ClientCarResultsTrunkCapacityValue = stringsPL.ClientCarResultsTrunkCapacityValue;
+    ClientCarResultsAccelerationValue = stringsPL.ClientCarResultsAccelerationValue;
+    ClientCarResultsPriceValue = stringsPL.ClientCarResultsPriceValue;
+    ClientCarResultsFuelConsumptionValue = stringsPL.ClientCarResultsFuelConsumptionValue;
+    ClientCarResultsPowerValue = stringsPL.ClientCarResultsPowerValue;
+    ClientCarResultsAgeValue = stringsPL.ClientCarResultsAgeValue;
+    ClientCarResultsSexValue = stringsPL.ClientCarResultsSexValue;
+
     ClientMainPageTitle = stringsPL.ClientMainPageTitle;
     ClientMainPageTitle2 = stringsPL.ClientMainPageTitle2;
     ClientMainPageShowMarks = stringsPL.ClientMainPageShowMarks;
@@ -325,6 +336,26 @@ export class StringResourcer {
     ClientUserPreferencesProvinceInsert2 = stringsPL.ClientUserPreferencesProvinceInsert2;
     ClientUserPreferencesSearch = stringsPL.ClientUserPreferencesSearch;
     ClientUserPreferencesSportBody = stringsPL.ClientUserPreferencesSportBody;
+    ClientUserPreferencesAlgorithms = stringsPL.ClientUserPreferencesAlgorithms;
+    ClientUserPreferencesOneType = stringsPL.ClientUserPreferencesOneType;
+    AdminAlgorithmOptionsTitle = stringsPL.AdminAlgorithmOptionsTitle;
+    AdminAlgorithmOptionsMembershipFunction = stringsPL.AdminAlgorithmOptionsMembershipFunction;
+    AdminAlgorithmOptionsMembershipFunctionPlaceholder = stringsPL.AdminAlgorithmOptionsMembershipFunctionPlaceholder;
+    AdminAlgorithmOptionsAlgorithm = stringsPL.AdminAlgorithmOptionsAlgorithm;
+    AdminAlgorithmOptionsAlgorithmPlaceholder = stringsPL.AdminAlgorithmOptionsAlgorithmPlaceholder;
+    AdminAlgorithmOptionsIsOneType = stringsPL.AdminAlgorithmOptionsIsOneType;
+    AdminAlgorithmOptionsMembershipFunctionInsert = stringsPL.AdminAlgorithmOptionsMembershipFunctionInsert;
+    AdminAlgorithmOptionsAlgorithmInsert = stringsPL.AdminAlgorithmOptionsAlgorithmInsert;
+    AdminAlgorithmOptionsIsOneTypeInsert = stringsPL.AdminAlgorithmOptionsIsOneTypeInsert;
+    AdminAlgorithmOptionsSave = stringsPL.AdminAlgorithmOptionsSave;
+    AdminAlgorithmOptionsRatioValue = stringsPL.AdminAlgorithmOptionsRatioValue;
+    AdminAlgorithmOptionsRatioValueInsert = stringsPL.AdminAlgorithmOptionsRatioValueInsert;
+    AdminAlgorithmOptionsAmountCars = stringsPL.AdminAlgorithmOptionsAmountCars;
+    AdminAlgorithmOptionsAmountCarsInsert = stringsPL.AdminAlgorithmOptionsAmountCarsInsert;
+    AdminAlgorithmOptionsAmountCarsPlaceholder = stringsPL.AdminAlgorithmOptionsAmountCarsPlaceholder;
+    AdminAlgorithmOptionsRatioValuePlaceholder = stringsPL.AdminAlgorithmOptionsRatioValuePlaceholder;
+    AdminAlgorithmOptionsIsOneTypePlaceholder = stringsPL.AdminAlgorithmOptionsIsOneTypePlaceholder;
+    AdminAlgorithmOptionsFillAllFields = stringsPL.AdminAlgorithmOptionsFillAllFields;
 
     SexMale = stringsPL.SexMale;
     SexFemale = stringsPL.SexFemale;
