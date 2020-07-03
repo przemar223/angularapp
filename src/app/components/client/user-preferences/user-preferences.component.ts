@@ -125,63 +125,63 @@ export class UserPreferencesComponent implements OnInit {
   }
 
   searchButton() {
-    this.info = '';
-    this.showPreferences();
-    console.log('age ' + this.selectedAge)
-    console.log('amout cars  ' + this.selectedAmountCars)
-    if (this.xxList.length < 1) {
-      this.isAllFields = false;
-      this.info += this.resourcer.CheckboxCheck + ' ';
-    } else {
-      this.isAllFields = true;
-    }
-    if (this.selectedSize === '' || this.selectedType === '' || this.selectedTrunkCapacity === '' ||
-      this.selectedDrive.name === '' || this.selectedAcceleration === '' || this.selectedPower === '' ||
-      this.selectedFuelConsumption === '' || this.selectedPrice === '' || this.selectedSex === '' || this.selectedAmountCars === null ||
-      this.selectedAge === '' || Number(this.selectedAge) > 99 || Number(this.selectedAge) < 18 ||
-      Number(this.selectedAmountCars) > 99 || Number(this.selectedAmountCars) < 0 || this.selectedProvince === '') {
-      this.isAllFields = false;
-      this.info += this.resourcer.AllFields;
-      return;
-    } else {
+    // this.info = '';
+    // this.showPreferences();
+    // console.log('age ' + this.selectedAge)
+    // console.log('amout cars  ' + this.selectedAmountCars)
+    // if (this.xxList.length < 1) {
+    //   this.isAllFields = false;
+    //   this.info += this.resourcer.CheckboxCheck + ' ';
+    // } else {
+    //   this.isAllFields = true;
+    // }
+    // if (this.selectedSize === '' || this.selectedType === '' || this.selectedTrunkCapacity === '' ||
+    //   this.selectedDrive.name === '' || this.selectedAcceleration === '' || this.selectedPower === '' ||
+    //   this.selectedFuelConsumption === '' || this.selectedPrice === '' || this.selectedSex === '' || this.selectedAmountCars === null ||
+    //   this.selectedAge === '' || Number(this.selectedAge) > 99 || Number(this.selectedAge) < 18 ||
+    //   Number(this.selectedAmountCars) > 99 || Number(this.selectedAmountCars) < 0 || this.selectedProvince === '') {
+    //   this.isAllFields = false;
+    //   this.info += this.resourcer.AllFields;
+    //   return;
+    // } else {
 
-      if (this.xxList.length < 1) {
-        this.info = '';
-        this.isAllFields = false;
-        this.info += this.resourcer.CheckboxCheck + ' ';
-        return;
-      }
+    //   if (this.xxList.length < 1) {
+    //     this.info = '';
+    //     this.isAllFields = false;
+    //     this.info += this.resourcer.CheckboxCheck + ' ';
+    //     return;
+    //   }
 
-      this.isAllFields = true;
-      this.customerRequirements.size = this.selectedSize;
-      this.customerRequirements.type = this.selectedType;
-      this.customerRequirements.trunkCapacity = this.selectedTrunkCapacity;
-      this.customerRequirements.drive = this.selectedDrive.name;
-      this.customerRequirements.acceleration = this.selectedAcceleration;
-      this.customerRequirements.power = this.selectedPower;
-      this.customerRequirements.fuelConsumption = this.selectedFuelConsumption;
-      this.customerRequirements.price = this.selectedPrice;
-      this.customerRequirements.sex = this.selectedSex;
-      this.customerRequirements.age = this.selectedAge;
-      this.customerRequirements.amountCars = this.selectedAmountCars;
-      this.customerRequirements.province = this.selectedProvince;
+    //   this.isAllFields = true;
+    //   this.customerRequirements.size = this.selectedSize;
+    //   this.customerRequirements.type = this.selectedType;
+    //   this.customerRequirements.trunkCapacity = this.selectedTrunkCapacity;
+    //   this.customerRequirements.drive = this.selectedDrive.name;
+    //   this.customerRequirements.acceleration = this.selectedAcceleration;
+    //   this.customerRequirements.power = this.selectedPower;
+    //   this.customerRequirements.fuelConsumption = this.selectedFuelConsumption;
+    //   this.customerRequirements.price = this.selectedPrice;
+    //   this.customerRequirements.sex = this.selectedSex;
+    //   this.customerRequirements.age = this.selectedAge;
+    //   this.customerRequirements.amountCars = this.selectedAmountCars;
+    //   this.customerRequirements.province = this.selectedProvince;
 
-      this.customerRequirements.algorithms = this.xxList;
-      this.customerRequirements.isOneType = this.selectedIsOneType;
-      console.log('caly customerReq:');
-      console.log(this.customerRequirements);
+    //   this.customerRequirements.algorithms = this.xxList;
+    //   this.customerRequirements.isOneType = this.selectedIsOneType;
+    //   console.log('caly customerReq:');
+    //   console.log(this.customerRequirements);
 
      this.customerRequirementsService.send(this.customerRequirements);
-    if (this.selectedAmountCars === '1') {
-      this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCar;
-    } else if (this.selectedAmountCars === '2' || this.selectedAmountCars === '3' || this.selectedAmountCars === '4') {
-      this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars;
-    } else {
-      this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars2;
-    }
-    this.customerRequirementsService.amount = this.selectedAmountCars;
+    // if (this.selectedAmountCars === '1') {
+    //   this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCar;
+    // } else if (this.selectedAmountCars === '2' || this.selectedAmountCars === '3' || this.selectedAmountCars === '4') {
+    //   this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars;
+    // } else {
+    //   this.customerRequirementsService.form = this.resourcer.ClientUserPreferencesCars2;
+    // }
+    // this.customerRequirementsService.amount = this.selectedAmountCars;
     this.router.navigateByUrl('car-results');
-     }
+    //  }
   }
 
   showPreferences() {

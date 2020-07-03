@@ -94,22 +94,7 @@
       </div>
     </div>
 
-    <div>
-      <div>
-        <h4>{{resourcer.AdminAlgorithmOptionsAmountCars}}</h4>
-      </div>
-      <div class="form-container">
-        <mat-form-field class="option-container">
-          <input matInput type="number" pattern="^[0-9]{0,2}$" required min="1"
-            max="10" onkeypress="return event.charCode >= 48"
-          placeholder="{{resourcer.AdminAlgorithmOptionsAmountCarsPlaceholder}}"
-          [formControl]="amountCarControl" [(ngModel)]="parameterInDTO.selectedAmountCars">
-          <mat-error *ngIf="amountCarControl.hasError('required')">
-            {{resourcer.AdminAlgorithmOptionsAmountCarsInsert}}</mat-error>
-          <mat-hint>{{amountCarControl.value?.sound}}</mat-hint>
-        </mat-form-field>
-      </div>
-    </div>
+
     
     <div>
       <div>
@@ -127,6 +112,25 @@
         </mat-form-field>
       </div>
     </div>
+
+
+    <div>
+      <div>
+        <h4>{{resourcer.AdminAlgorithmOptionsAmountCars}}</h4>
+      </div>
+      <div class="form-container">
+        <mat-form-field class="option-container">
+          <input matInput type="number" pattern="^[0-9]{0,2}$" required min="1"
+            max="10" onkeypress="return event.charCode >= 48"
+          placeholder="{{resourcer.AdminAlgorithmOptionsAmountCarsPlaceholder}}"
+          [formControl]="amountCarControl" [(ngModel)]="parameterInDTO.selectedAmountCars">
+          <mat-error *ngIf="amountCarControl.hasError('required')">
+            {{resourcer.AdminAlgorithmOptionsAmountCarsInsert}}</mat-error>
+          <mat-hint>{{amountCarControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+    
   </div>
   <p class="warning" [class.hidden]="isAllFields">{{resourcer.AdminAlgorithmOptionsFillAllFields}}</p>
   <div>
