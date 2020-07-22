@@ -30,7 +30,6 @@ export class UserPreferencesComponent implements OnInit {
   carFuelConsumptionControl = new FormControl('', [Validators.required]);
   carPriceControl = new FormControl('', [Validators.required]);
   customerSexControl = new FormControl('', [Validators.required]);
-  customerAgeControl = new FormControl('', [Validators.required]);
   amountCarControl = new FormControl('', [Validators.required]);
   provinceControl = new FormControl('', [Validators.required]);
 
@@ -43,7 +42,6 @@ export class UserPreferencesComponent implements OnInit {
   selectedFuelConsumption = '';
   selectedPrice = '';
   selectedSex = '';
-  selectedAge = '';
   selectedAmountCars = '10';
   selectedProvince = '';
   selectedIsOneType = false;
@@ -63,8 +61,6 @@ export class UserPreferencesComponent implements OnInit {
 
   drives: DictionaryCarDriveDTO[];
   sexes: String[] = [this.resourcer.SexMale, this.resourcer.SexFemale];
-  ages: String[] = [this.resourcer.ClientUserPreferencesPupil, this.resourcer.ClientUserPreferencesStudent,
-  this.resourcer.ClientUserPreferencesAdult, this.resourcer.ClientUserPreferencesPensioner];
   isAllFields = true;
   info = '';
   formData: FormData = new FormData();
@@ -73,7 +69,7 @@ export class UserPreferencesComponent implements OnInit {
 
   listButton = [];
   i = 1;
-  xxList = [];
+  algorithmList = [];
 
   constructor(private algorithmService: AlgorithmService,
     private router: Router, private customerRequirementsService: CustomerRequirementsService,
@@ -127,9 +123,8 @@ export class UserPreferencesComponent implements OnInit {
   searchButton() {
     // this.info = '';
     // this.showPreferences();
-    // console.log('age ' + this.selectedAge)
     // console.log('amout cars  ' + this.selectedAmountCars)
-    // if (this.xxList.length < 1) {
+    // if (this.algorithmList.length < 1) {
     //   this.isAllFields = false;
     //   this.info += this.resourcer.CheckboxCheck + ' ';
     // } else {
@@ -138,14 +133,13 @@ export class UserPreferencesComponent implements OnInit {
     // if (this.selectedSize === '' || this.selectedType === '' || this.selectedTrunkCapacity === '' ||
     //   this.selectedDrive.name === '' || this.selectedAcceleration === '' || this.selectedPower === '' ||
     //   this.selectedFuelConsumption === '' || this.selectedPrice === '' || this.selectedSex === '' || this.selectedAmountCars === null ||
-    //   this.selectedAge === '' || Number(this.selectedAge) > 99 || Number(this.selectedAge) < 18 ||
     //   Number(this.selectedAmountCars) > 99 || Number(this.selectedAmountCars) < 0 || this.selectedProvince === '') {
     //   this.isAllFields = false;
     //   this.info += this.resourcer.AllFields;
     //   return;
     // } else {
 
-    //   if (this.xxList.length < 1) {
+    //   if (this.algorithmList.length < 1) {
     //     this.info = '';
     //     this.isAllFields = false;
     //     this.info += this.resourcer.CheckboxCheck + ' ';
@@ -162,11 +156,10 @@ export class UserPreferencesComponent implements OnInit {
     //   this.customerRequirements.fuelConsumption = this.selectedFuelConsumption;
     //   this.customerRequirements.price = this.selectedPrice;
     //   this.customerRequirements.sex = this.selectedSex;
-    //   this.customerRequirements.age = this.selectedAge;
     //   this.customerRequirements.amountCars = this.selectedAmountCars;
     //   this.customerRequirements.province = this.selectedProvince;
 
-    //   this.customerRequirements.algorithms = this.xxList;
+    //   this.customerRequirements.algorithms = this.algorithmList;
     //   this.customerRequirements.isOneType = this.selectedIsOneType;
     //   console.log('caly customerReq:');
     //   console.log(this.customerRequirements);
@@ -196,11 +189,10 @@ export class UserPreferencesComponent implements OnInit {
     console.log('Spalanie: ' + this.selectedFuelConsumption);
     console.log('Cena: ' + this.selectedPrice);
     console.log('Płeć: ' + this.selectedSex);
-    console.log('Wiek: ' + this.selectedAge);
     console.log('Ilość wynikow: ' + this.selectedAmountCars);
     console.log('Wojewodztwo: ' + this.selectedProvince);
     console.log('Checkbox: ' + this.selectedIsOneType);
-    console.log('Algorytmy: ' + this.xxList);
+    console.log('Algorytmy: ' + this.algorithmList);
     console.log(this.carTypes);
   }
 
@@ -212,11 +204,11 @@ export class UserPreferencesComponent implements OnInit {
   onItemChange(event, asd) {
     console.log(event.checked, asd.name);
     if (event.checked === true) {
-      this.xxList.push(asd.key);
+      this.algorithmList.push(asd.key);
     } else {
-      this.xxList = this.xxList.filter(obj => obj !== asd.key);
+      this.algorithmList = this.algorithmList.filter(obj => obj !== asd.key);
     }
-    console.log(this.xxList);
+    console.log(this.algorithmList);
   }
 
   onItemChange2(event) {

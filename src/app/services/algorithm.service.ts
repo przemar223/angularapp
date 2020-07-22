@@ -22,22 +22,6 @@ export class AlgorithmService {
 
   constructor(private httpClient: HttpClient, private loginService: LoginService) { }
 
-
-  // getMembershipFunctions() {
-  //   this.getMembreshipFunctionsFromDb()
-  //     .subscribe(x => this.membershipFunctions = x);
-  // }
-
-  // getAlgorithms() {
-  //   this.getAlgorithmsFromDb()
-  //     .subscribe(x => this.algorithms = x);
-  // }
-
-  //   getTypes() {
-  //   this.getTypesFromDb()
-  //     .subscribe(x => this.type = x.name);
-  // }
-
   sendNewParams(mf: String, alg: String, type: String, selectedAmountCars: String, ratioValue: String) {
     this.sendNewParamsToDb(mf, alg, type, selectedAmountCars, ratioValue)
       .subscribe(x => this.parameterInDTO = x);
@@ -69,27 +53,6 @@ export class AlgorithmService {
       + mf + '/' + alg + '/' + type + '/' + selectedAmountCars + '/' + ratioValue + '/' + this.loginService.login);
     }
   }
-
-  // getAlgorithmsFromDb(): Observable<OptionDTO[]> {
-  //   this.algorithms = [];
-  //   if (this.loginService.login !== '') {
-  //     return this.httpClient.get<OptionDTO[]>('http://localhost:8085/admin/algorithms/' + this.loginService.login);
-  //   } 
-  // }
-
-  //   getTypesFromDb(): Observable<OptionDTO> {
-  //   this.type = '';
-  //   if (this.loginService.login !== '') {
-  //     return this.httpClient.get<OptionDTO>('http://localhost:8085/admin/algorithms_types/' + this.loginService.login);
-  //   } 
-  // }
-
-  //   getAmountFromDb(): Observable<OptionDTO> {
-  //   this.amountCars = '';
-  //   if (this.loginService.login !== '') {
-  //     return this.httpClient.get<OptionDTO>('http://localhost:8085/admin/algorithms_amount/' + this.loginService.login);
-  //   } 
-  // }
 
   getMembershipFunctionsForClient(): Observable<OptionDTO[]> {
     this.membershipFunctions = [];

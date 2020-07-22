@@ -103,8 +103,6 @@
   
   .openButtonContainer {
     position:relative;
-     /* top:-60px;
-    right:-120px; */
     padding-bottom: 20px;
     display: block;
     width: 20%;
@@ -139,7 +137,6 @@
 
 .example-form-content div div:last-child {
     padding-left: 00%;
-    /*przesuniecie w prawo inputow*/
 }
 
 .form-container {

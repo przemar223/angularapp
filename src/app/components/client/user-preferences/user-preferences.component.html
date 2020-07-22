@@ -190,20 +190,6 @@
 
         <div>
             <div>
-                <h4>{{resourcer.ClientUserPreferencesAgeInsert}}</h4>
-            </div>
-            <div class="form-container">
-                <mat-form-field>
-                    <input matInput type="number" pattern="^(?!10)(?!11)(?!12)(?!13)(?!14)(?!15)(?!16)(?!17)([1-9]{1}[0-9]{1})$" required onkeypress="return event.charCode >= 48" placeholder="{{resourcer.ClientUserPreferencesAge}}" [formControl]="customerAgeControl" [(ngModel)]="selectedAge">
-                    <mat-error *ngIf="customerAgeControl.hasError('required')">{{resourcer.ClientUserPreferencesAgeConditions}}
-                    </mat-error>
-                    <mat-hint>{{customerAgeControl.value?.sound}}</mat-hint>
-                </mat-form-field>
-            </div>
-        </div>
-
-        <div>
-            <div>
                 <h4>{{resourcer.ClientUserPreferencesAmountResultsInsert}}</h4>
             </div>
             <div class="form-container">

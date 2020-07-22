@@ -6,5 +6,4 @@ export class RequirementsResult {
     priceValue: Number;
     driveValue: Number;
     sexValue: Number;
-    ageValue: Number;
 }
