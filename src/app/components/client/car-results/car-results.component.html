@@ -15,7 +15,7 @@
 
 <div class="title">
   <h1>
-    {{resourcer.ClientCarResultsTitle}}
+    {{resourcer.ClientCarResultsTitle}}{{titleWait}}
   </h1>
   <h2>
     {{resourcer.ClientCarResultsTitle2}}
@@ -29,7 +29,7 @@
     </button>
   </div>
 </div>
-<div *ngFor="let x of xx | keyvalue">
+<div *ngFor="let x of xx | keyvalue: originalOrder">
   <div class="title">
     <h2>
       {{x.key}}

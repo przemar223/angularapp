@@ -33,11 +33,13 @@ export class CarsModelsDatabaseComponent implements OnInit, DoCheck {
   remember = '';
   hint = this.resourcer.CarsSearchBySegmentMarkModel;
   isSell = false;
+  title = '';
 
   constructor(private router: Router, private carModelService: CarModelService,
     private carBodyAndDriveService: CarBodyAndDriveService, private buyerService: BuyerService,
     public loginService: LoginService, public resourcer: StringResourcer) {
     this.isSell = this.buyerService.isSell;
+    this.title = this.resourcer.CarsTitle2;
   }
 
   ngOnInit() {
@@ -54,6 +56,7 @@ export class CarsModelsDatabaseComponent implements OnInit, DoCheck {
       this.loginService.checkSession();
     }
     if (this.carModelService.vehicleModels && this.carModelService.vehicleModels.length > 0 && this.i === 1) {
+      this.title = '';
       this.carsModels = this.carModelService.vehicleModels;
       this.dataSource = new MatTableDataSource(this.carsModels);
       this.dataSource.sortingDataAccessor = (data, attribute) => data[attribute];

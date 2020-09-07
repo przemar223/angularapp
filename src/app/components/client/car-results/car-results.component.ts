@@ -6,6 +6,7 @@ import { AlgorithmService } from 'src/app/services/algorithm.service';
 
 import { Router } from '@angular/router';
 import { StringResourcer } from 'src/app/stringResourcer.js';
+import { KeyValue } from '@angular/common';
 
 @Component({
   selector: 'app-car-results',
@@ -15,7 +16,7 @@ import { StringResourcer } from 'src/app/stringResourcer.js';
 export class CarResultsComponent implements OnInit, DoCheck {
 
   finishCars: FinishCar[];
- 
+
   myAlgorithmCars: FinishCar[];
   maxCars: FinishCar[];
   minCars: FinishCar[];
@@ -23,15 +24,18 @@ export class CarResultsComponent implements OnInit, DoCheck {
   resultsOut: ResultsOut[];
   panelOpenState = false;
   i = 1;
+  titleWait = '';
 
   constructor(public algorithmService: AlgorithmService,
   public customerRequirementsService: CustomerRequirementsService,
-    private router: Router, public resourcer: StringResourcer) { }
+    private router: Router, public resourcer: StringResourcer) {
+      this.titleWait = this.resourcer.CarsTitle2;
+     }
 
   ngOnInit() {
     console.log('ongOnInint');
     this.finishCars = [];
-    
+
     this.myAlgorithmCars = [];
     this.maxCars = [];
     this.minCars = [];
@@ -42,13 +46,18 @@ export class CarResultsComponent implements OnInit, DoCheck {
   ngDoCheck() {
     console.log('ngDoCheck');
     if (this.customerRequirementsService.resultsOut && this.customerRequirementsService.resultsOut.length > 0 && this.i === 1) {
+      this.titleWait = '';
       this.resultsOut = this.customerRequirementsService.resultsOut;
       console.log(this.resultsOut);
       this.i = this.i + 1;
     }
   }
 
-  selectAlgorithmButton(buttonName){
+originalOrder = (a: KeyValue<number, String>, b: KeyValue<number, String>): number => {
+  return 0;
+}
+
+  selectAlgorithmButton(buttonName) {
     this.myAlgorithmCars = [];
     this.minCars = [];
     this.maxCars = [];
@@ -56,12 +65,14 @@ export class CarResultsComponent implements OnInit, DoCheck {
     this.resultsOut.forEach(element => {
        if (element.name === buttonName) {
         this.xx = element.data;
-        console.log(this.xx);
-        this.myAlgorithmCars = (element.data['MyAlgorithm']);
-        this.minCars = (element.data['Minimum']);
-        this.maxCars = (element.data['Maximum']);
+        console.log(element.data);
+        // this.myAlgorithmCars = (element.data['MyAlgorithm']);
+        // this.minCars = (element.data['Minimum']);
+        // this.maxCars = (element.data['Maximum']);
       }
     });
+    console.log(this.xx);
+    console.log(this.resultsOut);
   }
 
   menuButton() {

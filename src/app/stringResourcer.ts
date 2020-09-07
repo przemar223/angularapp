@@ -222,6 +222,7 @@ export class StringResourcer {
     CarsEditModel = stringsPL.CarsEditModel;
     CarsRemoveModel = stringsPL.CarsRemoveModel;
     CarsTitle = stringsPL.CarsTitle;
+    CarsTitle2 = stringsPL.CarsTitle2;
     CarsFilterBy = stringsPL.CarsFilterBy;
     CarsSegment = stringsPL.CarsSegment;
     CarsMark = stringsPL.CarsMark;
